@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 import {dbConnection} from "./config/database.js"
  
 // import userRoute from "./routes/user.js";
-// import productRoute from "./routes/product.js";
+import productRoute from "./routes/product.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -17,21 +17,21 @@ dotenv.config();
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 // app.use("/user", userRoute);
-// app.use("/product", productRoute);
+app.use("/product", productRoute);
 
 dbConnection()
 
 
 
-import {register, login, updateUser, deleteUser, userById, resetPassword} from "./controllers/auth/auth.js"
+// import {register, login, updateUser, deleteUser, userById, resetPassword} from "./controllers/auth/auth.js"
 // import {addProduct, getAllProducts, updateProduct, deleteProduct} from "./controllers/products/products.js"
 // import {isAdmin, checkAuth} from "./controllers/middlewares/auth.js"
 // import {dashboardData} from "./controllers/admin/dashboard.js"
 
 
 // AUTH
-app.post('/register', register);
-app.post("/login", login)
+// app.post('/register', register);
+// app.post("/login", login)
 
 
 // // User Routes

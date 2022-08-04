@@ -1,5 +1,12 @@
 import productModel from "../../models/product.js"
 
+export const check = async (req, res) => {
+    try{
+        res.send("nicwee")
+    }catch(error){
+        res.send(error.message)
+    }
+}
 export const addProduct = async (req, res) => {
     try{
 
