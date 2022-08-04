@@ -34,7 +34,7 @@ router.get("/add", check);
 // router.post("/update", updateProduct);
 
 
-AUTH
+// AUTH
 router.post('/register', register);
 router.post("/login", login)
 
