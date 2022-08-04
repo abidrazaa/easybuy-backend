@@ -1,6 +1,7 @@
 import express from "express";
 import {
   check,
+  addProduct
   
 } from "../controllers/products/products.js";
 
@@ -27,7 +28,7 @@ const upload = multer({ storage: fileStorageEngine });
 // router.post("/view/list", viewProductList);
 
 // router.post("/add", upload.single("image"), addProduct);
-router.get("/add", check);
+router.get("/add", addProduct);
 
 // router.post("/delete", deleteProduct);
 
