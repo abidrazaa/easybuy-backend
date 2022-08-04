@@ -5,10 +5,10 @@ import {
   
 } from "../controllers/products/products.js";
 
-import {
-    login,
-    register
-} from "../controllers/auth/auth.js"
+// import {
+//     login,
+//     register
+// } from "../controllers/auth/auth.js"
 import multer from "multer";
 
 const router = express.Router();
@@ -36,8 +36,8 @@ router.post("/add", addProduct);
 
 
 // AUTH
-router.post('/register', register);
-router.post("/login", login)
+// router.post('/register', register);
+// router.post("/login", login)
 
 
 // User Routes
