@@ -23,33 +23,33 @@ dbConnection()
 
 
 
-import {register, login, updateUser, deleteUser, userById, resetPassword} from "./controllers/auth/auth.js"
-import {addProduct, getAllProducts, updateProduct, deleteProduct} from "./controllers/products/products.js"
-import {isAdmin, checkAuth} from "./controllers/middlewares/auth.js"
-import {dashboardData} from "./controllers/admin/dashboard.js"
+// import {register, login, updateUser, deleteUser, userById, resetPassword} from "./controllers/auth/auth.js"
+// import {addProduct, getAllProducts, updateProduct, deleteProduct} from "./controllers/products/products.js"
+// import {isAdmin, checkAuth} from "./controllers/middlewares/auth.js"
+// import {dashboardData} from "./controllers/admin/dashboard.js"
 
 
-// AUTH
-app.post('/register', register);
-app.post("/login", login)
+// // AUTH
+// app.post('/register', register);
+// app.post("/login", login)
 
 
-// User Routes
-app.post("/update-user", updateUser)
-app.get("/user", userById)
-app.get("/delete-user", deleteUser)
-app.post("/reset-password", resetPassword)
+// // User Routes
+// app.post("/update-user", updateUser)
+// app.get("/user", userById)
+// app.get("/delete-user", deleteUser)
+// app.post("/reset-password", resetPassword)
 
 
-// Products
-app.post("/product", [isAdmin], addProduct)
-app.get("/products", getAllProducts)
-app.post("/update-product", [isAdmin], updateProduct)
-app.get("/delete-product", [isAdmin], deleteProduct)
+// // Products
+// app.post("/product", [isAdmin], addProduct)
+// app.get("/products", getAllProducts)
+// app.post("/update-product", [isAdmin], updateProduct)
+// app.get("/delete-product", [isAdmin], deleteProduct)
 
 
-// ADMIN
-app.get("/dashboard",[isAdmin],dashboardData)
+// // ADMIN
+// app.get("/dashboard",[isAdmin],dashboardData)
 
 
 
