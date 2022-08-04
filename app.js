@@ -6,16 +6,6 @@ dotenv.config();
  
 
 
-const { register, login, updateUser, deleteUser, userById, resetPassword } = require("./controllers/auth/auth");
-const {addProduct, updateProduct, deleteProduct, getAllProducts} = require("./controllers/products/products")
-const {checkout, addToCart, cart, removeFromCart} = require("./controllers/user/cart")
-const {isAdmin, checkAuth} = require("./controllers/middlewares/auth");
-const { dashboardData } = require('./controllers/admin/dashboard');
-const mongoose = require("./config/database")()
-
-
-
-
 
 
 
