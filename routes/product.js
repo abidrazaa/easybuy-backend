@@ -28,7 +28,7 @@ const upload = multer({ storage: fileStorageEngine });
 // router.post("/view/list", viewProductList);
 
 // router.post("/add", upload.single("image"), addProduct);
-router.get("/add", addProduct);
+router.post("/add", addProduct);
 
 // router.post("/delete", deleteProduct);
 
