@@ -1,22 +1,22 @@
-
-const express = require('express')
+const express = require('express');
 const app = express();
-const port = process.env.PORT;
 var bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const jwt = require('jsonwebtoken');
-var path = require('path');
-var cors = require('cors')
-
-// To access public folder
-app.use(cors())
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.json())
-
-// Set up Global configuration access
 dotenv.config();
+ 
+
+// const jwt = require('jsonwebtoken');
+// var path = require('path');
+// var cors = require('cors')
+
+// // To access public folder
+// app.use(cors())
+// app.use(express.static(path.join(__dirname, 'public')));
+
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(express.json())
+
+
 
 // MULTER
 const multer  = require('multer')
