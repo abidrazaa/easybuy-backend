@@ -1,93 +1,28 @@
-const express = require('express');
+import express from "express";
+import mongoose from "mongoose";
+import * as dotenv from "dotenv";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+// import userRoute from "./routes/user.js";
+import productRoute from "./routes/product.js";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const app = express();
-var bodyParser = require('body-parser');
-const dotenv = require('dotenv');
+const port = process.env.PORT || 8000;
+
 dotenv.config();
- 
+app.use(express.json());
+app.use(express.static(__dirname + "/public/uploads"));
+// app.use("/user", userRoute);
+app.use("/product", productRoute);
 
-const jwt = require('jsonwebtoken');
-var path = require('path');
-var cors = require('cors')
+mongoose.connect(process.env.DB_CON_STRING, { useNewUrlParser: true });
+const db = mongoose.connection;
+db.on("error", (error) => console.log(error));
+db.once("open", () => console.log("Connected to Database"));
 
-// To access public folder
-app.use(cors())
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.json())
-
-
-
-// MULTER
-const multer  = require('multer')
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/uploads/')
-  },
-  filename: function (req, file, cb) {
-    let uploadFile = file.originalname.split('.')
-    let name = `${uploadFile[0]}-${Date.now()}.${uploadFile[uploadFile.length-1]}`
-    cb(null, name)
-  }
-})
-const upload = multer({ storage: storage })
-
-
-
-
-import {register} from "./controllers/auth/auth"
-
-
-
-
-app.post("register",register)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
-  // req.files is array of `photos` files
-
-  try{
-    let files = req.files;
-    if(!files.length){
-      return res.status(400).json({ err:'Please upload an image', msg:'Please upload an image' })
-    }
-    let file = req.files[0]
-    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-        return res.send(file.filename) 
-    }
-  }catch(errror){
-    return res.send(error.message)
-  }
-  
-})
-
-
-
-
-
-app.get('/', (req, res) => {
-  res
-    .status(200)
-    .send('Hello server is runningggggg')
-    .end();
-});
- 
-// Start the server
-const PORT = process.env.PORT || 8080;
-console.log(process.env.PORT)
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-  console.log('Press Ctrl+C to quit.');
+app.listen(port, () => {
+  console.log(`listening on port http://localhost:${port}`);
 });
