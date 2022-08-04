@@ -21,9 +21,7 @@ app.use(express.static(__dirname + "/public"));
 
 dbConnection()
 
-app.listen(port, () => {
-  console.log(`listening on port http://localhost:${port}`);
-});
+
 
 import {register, login, updateUser, deleteUser, userById, resetPassword} from "./controllers/auth/auth.js"
 import {addProduct, getAllProducts, updateProduct, deleteProduct} from "./controllers/products/products.js"
@@ -95,6 +93,10 @@ app.post('/photos/upload', upload.array('photos', 12), function (req, res, next)
 })
 
 
+
+app.listen(port, () => {
+  console.log(`listening on port http://localhost:${port}`);
+});
 
 
 
