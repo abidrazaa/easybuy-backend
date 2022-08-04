@@ -92,7 +92,9 @@ app.post('/photos/upload', upload.array('photos', 12), function (req, res, next)
   
 })
 
-
+app.get("/",() => {
+  return res.send("Working")
+})
 
 app.listen(port, () => {
   console.log(`listening on port http://localhost:${port}`);
