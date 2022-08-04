@@ -35,6 +35,10 @@ const upload = multer({ storage: storage })
 
 
 
+const check = require("./controllers/auth/auth")
+
+
+
 
 
 app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
