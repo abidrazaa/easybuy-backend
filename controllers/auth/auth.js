@@ -1,10 +1,10 @@
-import userModel from "../../model/user.js"
+import userModel from "../../models/user.js"
 import bcrypt from "bcrypt"
 import jsonwebtoken from "jsonwebtoken"
-const JWT_SECRET_KEY = process.env.TOKEN_KEY
+// const JWT_SECRET_KEY = process.env.TOKEN_KEY
 
 function generateAuthToken(data){
-  const token = jsonwebtoken.sign(data, JWT_SECRET_KEY, { expiresIn: '10h' })
+  const token = jsonwebtoken.sign(data, process.env.TOKEN_KEY, { expiresIn: '10h' })
   return token
 }
 
