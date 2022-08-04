@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-
+import {dbConnection} from "./config/database.js"
+ 
 // import userRoute from "./routes/user.js";
 import productRoute from "./routes/product.js";
 
@@ -18,11 +19,30 @@ app.use(express.static(__dirname + "/public/uploads"));
 // app.use("/user", userRoute);
 app.use("/product", productRoute);
 
-mongoose.connect(process.env.DB_CON_STRING, { useNewUrlParser: true });
-const db = mongoose.connection;
-db.on("error", (error) => console.log(error));
-db.once("open", () => console.log("Connected to Database"));
+dbConnection()
 
 app.listen(port, () => {
   console.log(`listening on port http://localhost:${port}`);
 });
+
+import {register, login} from "./controllers/auth/auth.js"
+
+
+
+
+
+// AUTH
+app.post('/register', register);
+app.post("/login", login)
+
+
+
+
+
+
+
+
+
+
+
+
