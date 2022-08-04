@@ -35,7 +35,21 @@ const upload = multer({ storage: storage })
 
 
 
-const check = require("./controllers/auth/auth")
+import {register} from "./controllers/auth/auth"
+
+
+
+
+app.post("register",register)
+
+
+
+
+
+
+
+
+
 
 
 
