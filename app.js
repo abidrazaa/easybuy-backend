@@ -7,7 +7,7 @@ dotenv.config();
 app.get('/', (req, res) => {
   res
     .status(200)
-    .send('Hello server is running')
+    .send('Hello server is runningggggg')
     .end();
 });
  
