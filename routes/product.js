@@ -3,6 +3,11 @@ import {
   check,
   
 } from "../controllers/products/products.js";
+
+import {
+    login,
+    register
+} from "../controllers/auth/auth.js"
 import multer from "multer";
 
 const router = express.Router();
@@ -27,5 +32,31 @@ router.get("/add", check);
 // router.post("/delete", deleteProduct);
 
 // router.post("/update", updateProduct);
+
+
+AUTH
+router.post('/register', register);
+router.post("/login", login)
+
+
+// User Routes
+// router.post("/update-user", updateUser)
+// router.get("/user", userById)
+// router.get("/delete-user", deleteUser)
+// router.post("/reset-password", resetPassword)
+
+
+// // Products
+// router.post("/product", [isAdmin], addProduct)
+// router.get("/products", getAllProducts)
+// router.post("/update-product", [isAdmin], updateProduct)
+// router.get("/delete-product", [isAdmin], deleteProduct)
+
+
+// // ADMIN
+// router.get("/dashboard",[isAdmin],dashboardData)
+
+
+
 
 export default router;
