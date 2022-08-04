@@ -92,7 +92,7 @@ app.post('/photos/upload', upload.array('photos', 12), function (req, res, next)
   
 })
 
-app.get("/",() => {
+app.get("/",(req, res) => {
   return res.send("Working")
 })
 
